@@ -10,37 +10,35 @@ const GRID_SIZE = 8;
 const Col = styled.div`
   display: flex;
   flex-direction: column;
-  width: 80%;
 `;
 
 const Row = styled.div`
   display: flex;
   flex-direction: row;
-  width: 100%;
 `;
 
 const Square = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100px;
-  height: 100px;
+  width: 75px;
+  height: 75px;
   border: 1px solid black;
   cursor: pointer;
-  background: ${props => props.color};
+  background: ${(props) => props.color};
 `;
 
 /**
  * Init functions
  */
-const initSquare = coords => {
+const initSquare = (coords) => {
   return {
     color: "white",
     coordinates: coords
   };
 };
 
-const initGrid = size => {
+const initGrid = (size) => {
   let grid = [];
   for (let i = 0; i < size; i++) {
     let row = [];
@@ -79,7 +77,7 @@ export default () => {
     <Col>
       {state.grid.map((row, idx) => (
         <Row key={idx}>
-          {row.map(square => (
+          {row.map((square) => (
             <Square
               key={square.coordinates.join("/")}
               color={square.color}
